@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../configs/mysql_db_config");
-const Topic = require("./topic");
+const User = require("./user");
 
-const User = sequelize.define("user", {
+const Topic = sequelize.define("topic", {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -11,16 +11,12 @@ const User = sequelize.define("user", {
     },
     name: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
     },
-    email: {
-        type: Sequelize.STRING,
-        allowNull: false,
-    },
-    password: {
-        type: Sequelize.STRING,
-        allowNull: false,
+    flag: {
+        type: Sequelize.BOOLEAN
     }
+
 });
 
-module.exports = User;
+module.exports = Topic;
