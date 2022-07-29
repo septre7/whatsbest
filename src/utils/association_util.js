@@ -10,7 +10,7 @@ const association = () => {
   });
   Topic.belongsToMany(User, {
     through: "topic_user",
-    foreignKey: "topc_id",
+    foreignKey: "topic_id",
   });
 
   sequelize
