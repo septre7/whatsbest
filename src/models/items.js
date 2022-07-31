@@ -28,11 +28,6 @@ const Items = sequelize.define("items", {
         type: Sequelize.BLOB,
         allowNull: false,
     },
-    genre: {
-        //I don't think there is a list type in sql. So keeping it as string. We can manage it as comma separated strings
-        allowNull: false,
-        type: Sequelize.STRING, 
-    },
     positiveClicks: {
         type: Sequelize.INTEGER,
         defaultValue: 0
