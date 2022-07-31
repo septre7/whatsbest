@@ -6,17 +6,29 @@ const Categories = require("../models/categories");
 
 const association = () => {
   //association
+  //Start of User-Topic Relatopnship Many To Many
   User.belongsToMany(Topic, {
     through: "topic_user",
     foreignKey: "user_id",
   });
+
   Topic.belongsToMany(User, {
     through: "topic_user",
     foreignKey: "topic_id",
   });
-  Topic.belongsToMany(Items, {  
-    foreignKey: "topicId"
-  })
+  //End of User-Topic Relatopnship Many To Many
+
+  //Start of Topic-Item Relatopnship Many To Many
+  Topic.belongsToMany(Items, {
+    through: "topic_item",  
+    foreignKey: "topic_id"
+  });
+
+  Items.belongsToMany(Topic, {
+    through: "topic_item",  
+    foreignKey: "item_id"
+  });
+  //End of Topic-Item Relatopnship Many To Many
 
 
   sequelize
